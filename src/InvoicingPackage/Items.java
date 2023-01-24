@@ -1,12 +1,12 @@
 package InvoicingPackage;
-import java.io.FileOutputStream;
+
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class Items  {
+public class Items  implements Serializable{
 	
 	
 

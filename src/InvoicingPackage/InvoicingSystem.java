@@ -5,18 +5,11 @@ import java.util.Scanner;
 
 public class InvoicingSystem {
 	
-	
-	
 	ArrayList<Items> itemlist = new ArrayList<Items>();
 	Customer cus = new Customer();
 	Scanner sr = new Scanner(System.in);
 	
-	
-    
-	
-
-	
-	
+	private int invoicingDate ;
 	private int numberOfItems ;
 	private int numberOfInvoice ;
 	private int totalSales ;
@@ -25,13 +18,37 @@ public class InvoicingSystem {
 	private String customerName ;
 	private int numbrOfItems ;
 	private int totalBalanc ;
+	private int fax ;
+	private int tel ;
+	private String email ;
+	private String webSite ;
 	
 	
-	// compelet the invoice and do objectshininng in the item class,, after that print the invoice in the main class
-	// by calling the mahtods 
 	
-	
-	
+	public int getFax() {
+		return fax;
+	}
+	public void setFax(int fax) {
+		this.fax = fax;
+	}
+	public int getTel() {
+		return tel;
+	}
+	public void setTel(int tel) {
+		this.tel = tel;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getWebSite() {
+		return webSite;
+	}
+	public void setWebSite(String webSite) {
+		this.webSite = webSite;
+	}
 	public int getInvoiceNumnber() {
 		return invoiceNumnber;
 	}
@@ -81,11 +98,10 @@ public class InvoicingSystem {
 		this.totalSales = totalSales;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
+	public int getInvoicingDate() {
+		return invoicingDate;
+	}
+	public void setInvoicingDate(int invoicingDate) {
+		this.invoicingDate = invoicingDate;
+	}	
 }

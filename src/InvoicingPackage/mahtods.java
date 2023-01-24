@@ -1,4 +1,6 @@
 package InvoicingPackage;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -6,12 +8,11 @@ import java.util.Scanner;
 public class mahtods {
 	
 	
-	Scanner sr = new Scanner(System.in);
+	transient Scanner sr = new Scanner(System.in);
 	ArrayList<Shop> shopList = new ArrayList<Shop>();
 	ArrayList<Customer> customerList = new ArrayList<Customer>();
 	ArrayList<Items> itemList = new ArrayList<Items>();
-
-
+	ArrayList<InvoicingSystem> InvoicList = new ArrayList<InvoicingSystem>();
 
 	//////////////////////////////////////////////SHOP/////////////////////////////////////////////////////////////////////////////////////
 	public void AddshopDetails()
@@ -20,9 +21,6 @@ public class mahtods {
 		System.out.println("Enter the shop name ");
 		String shopName = sr.next();
 		temShop.setShopName(shopName);
-		System.out.println("Enter the shop ID ");
-		int shopId = sr.nextInt();
-		temShop.setShopID(shopId);
 		shopList.add(temShop);
 		}
 	
@@ -31,7 +29,6 @@ public class mahtods {
 		for (Shop a : shopList)
 		{
 		System.out.println("the shop name is : "+a.getShopName()+"======");
-		System.out.println("the shopn ID is  :    "+a.getShopID()+"======");
 		}
 	
 	}
@@ -55,7 +52,20 @@ public class mahtods {
 	    int itemId = itemList.size();
 	    temitem.setIteamId(itemId);
 	    itemList.add(temitem);
-	
+//	    
+//	
+//	    try{
+//
+//	        FileOutputStream file = new FileOutputStream("serlization4.txt");
+//	        ObjectOutputStream out = new ObjectOutputStream(file);
+//	        out.writeObject(temitem);
+//	        out.close();
+//	        file.close();
+//	        System.out.println("===============serialized and saved==================");
+//	         }catch (Exception ex){
+//	      ex.printStackTrace();
+//	    }
+//	
 	    }
 	
 	
@@ -116,7 +126,7 @@ public class mahtods {
 	
 	public void countInvoice()
 	{
-		int invoice = 0;
+		int invoice = 1;
 		for(Items a : itemList)
 		{
 			invoice = invoice + a.getIteamId();
@@ -124,10 +134,11 @@ public class mahtods {
 		}
 		System.out.println("The total invoice number is : "+invoice);
 	}
+	
+	
 
-	
-	
 	//////////////////////////////////////////////CUSTOMER///////////////////////////////////////////////////////////////////////////////////////
+	
 	public void ADDcustomer()
 	{
 		Customer customer = new Customer();
@@ -151,14 +162,65 @@ public class mahtods {
 	}
 	
 	/////////////////////////////////////////////////////////////////////InvoicingSystem///////////////////////////////////////////////////////////
+	public void invoiceheardr()
+	{
+		InvoicingSystem temInvoic = new InvoicingSystem();
+	    System.out.println("please Enter the invoice Fax name ");
+	    int invoiceFax = sr.nextInt();
+	    temInvoic.setFax(invoiceFax);
+	    System.out.println("Enter the invoice tel");
+	    int invoiceTel = sr.nextInt();
+	    temInvoic.setTel(invoiceTel);
+	    System.out.println("please Enter the invoice Email");
+	    String invoiceEmail = sr.next();
+	    temInvoic.setEmail(invoiceEmail);
+	    System.out.println("Enter the todays date ");
+	    int date = sr.nextInt();
+	    temInvoic.setInvoiceDate(date);
+	    InvoicList.add(temInvoic);
+	}
+	
+	public void printInvoicingHeader()
+	{
+		for(InvoicingSystem a : InvoicList)
+		{
+			System.out.println("Fax is : "+a.getFax());
+			System.out.println("tel number is : "+a.getTel());
+			System.out.println("Fax is : "+a.getEmail());
+
+		}
+
+	}
+
+	
+	public void invoiceDate()
+	{
+		for(InvoicingSystem a : InvoicList)
+		{
+			System.out.println("invoice date is "+a.getInvoiceDate()+"/1/2023");
+		}
+	
+	}
 	
 	public void ReportStatistics()
 	{
-		
 			countItems();
 			countInvoice();
-			totalsales();
-			
+			totalsales();	
+	}
+	
+	
+	
+	public void allInvoices()
+	{
+		countInvoice();
+		invoiceDate();
+		for(Customer a : customerList)
+		{
+		System.out.println("Custoemr name is : "+a.getCustomerFullName());
+		}
+		countItems();
+		totalsales();
 	}
 	
 	
@@ -179,26 +241,6 @@ public class mahtods {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 	
 	
 	
