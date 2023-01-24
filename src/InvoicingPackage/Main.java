@@ -7,8 +7,8 @@ public class Main {
 	public static void main(String[] args) {
 		ArrayList<Shop> itemlist = new ArrayList<Shop>();
 		Scanner sr = new Scanner(System.in);
-		Shop shop = new Shop();
-		Items item = new Items();
+		mahtods mathod = new mahtods();
+		InvoicingSystem invoic = new InvoicingSystem();
 		Customer cus = new Customer();
 		boolean i = true ;
 	
@@ -19,47 +19,50 @@ public class Main {
 	
 		while(i)
 		{
-			System.out.println("Enter number == 1 == to Add new custoemr");
-			System.out.println("Enter number == 2 == to Add new Shop & the items to the invoicing ");
-			System.out.println("Enter number == 3 == to print the added Items ");
-			System.out.println("Enter number == 4 == to delete any of the report ");
-			System.out.println("Enter number == 5 == to change the items");
-			System.out.println("Enter number == 6 == to print the invoice");
+			System.out.println("1.  Add new Shop & new customer");
+			System.out.println("2.  Add new Shop & the items to the invoicing ");
+			System.out.println("3.  Print the added Items ");
+			System.out.println("4.  Delete any of the report ");
+			System.out.println("5.  Change the items price");
+			System.out.println("6.  Report: Statistics");
+			System.out.println(" To print the invoice");
 
-			System.out.println("Enter number == 10 == to EXit");
+			System.out.println("10. EXit");
 
 			
 		int ii = sr.nextInt(); 
 		switch (ii)
 		{
 		case 1:
-			shop.ADDcustomer();
+			mathod.AddshopDetails();
+			mathod.ADDcustomer();
 	    	break ;
 		case 2:
-			cus.AddItem();
+			mathod.AddItem();
 			// shop have to bee added also here
 			break;
 		case 3:
 			int count = 1;
-			System.out.println("==============================="+"invoice Details"+count+"===============================");
-			shop.print();
-			cus.print();
+			System.out.println("==============================="+"invoice Details "+count+"===============================");
+			mathod.printShopDetails();
+			mathod.printcustomer();
+			mathod.print();
+			count++;
 			break ;
+			
 		case 4:
-			cus.deleteItems();
+		mathod.deleteItems();
 		break ;
 		case 5:
-			cus.changeitemprice();
+		mathod.changeitemprice();
 			break ;
 		case 6:
-			
+		   mathod.ReportStatistics();
 			break ;
 			
 		case 10 : 
 			   System.out.println("thanks!!!!!");
 		       return;
-		    
-		
 		    }
 		}
 		sr.close();

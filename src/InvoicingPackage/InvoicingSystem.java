@@ -1,6 +1,21 @@
 package InvoicingPackage;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class InvoicingSystem {
+	
+	
+	
+	ArrayList<Items> itemlist = new ArrayList<Items>();
+	Customer cus = new Customer();
+	Scanner sr = new Scanner(System.in);
+	
+	
+    
+	
+
+	
 	
 	private int numberOfItems ;
 	private int numberOfInvoice ;
@@ -12,11 +27,8 @@ public class InvoicingSystem {
 	private int totalBalanc ;
 	
 	
-	
-	
-	
-	
-	
+	// compelet the invoice and do objectshininng in the item class,, after that print the invoice in the main class
+	// by calling the mahtods 
 	
 	
 	

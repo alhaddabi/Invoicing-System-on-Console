@@ -6,12 +6,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class Items implements Serializable {
+public class Items  {
 	
 	
-	
+
 	ArrayList<InvoicingSystem> invoo = new ArrayList<InvoicingSystem>();
-	InvoicingSystem invo = new InvoicingSystem();
 	
 	Scanner sr = new Scanner(System.in);
 	private int numberOfItems ;
@@ -19,11 +18,17 @@ public class Items implements Serializable {
 	private String itemaName ;
 	private int itemsPrice ;
 	
-	boolean condation = true ;
 	
 	
 	
+        
+	public void balance()
+	{
 		
+	}
+	
+	
+
 		public void printInvocing()
 		{
 			System.out.println("the name is " +this.itemaName);
