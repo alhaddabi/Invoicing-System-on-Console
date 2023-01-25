@@ -1,5 +1,8 @@
 package InvoicingPackage;
+import java.io.BufferedWriter;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -53,9 +56,9 @@ public class mahtods implements Serializable{
 	
 	
 	////////////////////////////////////////////////////ITEMS//////////////////////////////////////////////////////////////////////////////////
+	
+
 	public void AddItem() {
-		
-		
 	   	Items temitem = new Items();
 	    System.out.println("please Enter the items name ");
 	    String itemnam = sr.next();
@@ -70,19 +73,21 @@ public class mahtods implements Serializable{
 	    int itemId = itemList.size();
 	    temitem.setIteamId(itemId);
 	    itemList.add(temitem);
-	    
-//	
-//	    try{
-//
-//	        FileOutputStream file = new FileOutputStream("serlization4.txt");
-//	        ObjectOutputStream out = new ObjectOutputStream(file);
-//	        out.writeObject(temitem);
-//	        out.close();
-//	        file.close();
-//	        System.out.println("===============serialized and saved==================");
-//	         }catch (Exception ex){
-//      ex.printStackTrace();
-//	    }
+	    try
+	    {
+	    	BufferedWriter writer = new BufferedWriter(new FileWriter("item_output.txt"));
+	    	for(Items a : itemList)
+			{
+				writer.write("the Customer name is : "+a.getItemaName()+"======\n");
+				writer.write("the item price is :    "+a.getItemsPrice()+"======\n");
+				writer.write("the item number is :   "+a.getNumberOfItems()+"======\n");
+				writer.write("the item ID is :       "+a.getIteamId()+"======\n");
+			}
+	    	writer.close();
+	    }catch (IOException o) {		
+			o.printStackTrace();
+			
+		}
 	
 	    }
 	
