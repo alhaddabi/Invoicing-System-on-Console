@@ -1,11 +1,12 @@
 package InvoicingPackage;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
-
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class mahtods {
+public class mahtods implements Serializable{
 	
 	
 	transient Scanner sr = new Scanner(System.in);
@@ -17,11 +18,27 @@ public class mahtods {
 	//////////////////////////////////////////////SHOP/////////////////////////////////////////////////////////////////////////////////////
 	public void AddshopDetails()
 	     {
+		boolean t1 = false;
+		do {
+			t1 = false ;
+		try // for handing the exception 
+		{
 		Shop temShop = new Shop();
 		System.out.println("Enter the shop name ");
 		String shopName = sr.next();
+		System.out.println("Enter the shop ID ");
+		int shopId = sr.nextInt();
+		temShop.setShopId(shopId);
 		temShop.setShopName(shopName);
 		shopList.add(temShop);
+		}
+		 catch (InputMismatchException w) { // for handing the try and showing the given pritn insted of showing an error excpation
+				System.out.println("who comes the ID could be a String!!!!!! please focuse and repet ");
+				t1 = true;
+				sr.nextLine(); // with out the sc.nextLine() there will be an infinty loop going 
+			}
+	      }while(t1); //  we have to do (do - while) to make the condation happen
+		
 		}
 	
 	public void printShopDetails()
@@ -38,6 +55,7 @@ public class mahtods {
 	////////////////////////////////////////////////////ITEMS//////////////////////////////////////////////////////////////////////////////////
 	public void AddItem() {
 		
+		
 	   	Items temitem = new Items();
 	    System.out.println("please Enter the items name ");
 	    String itemnam = sr.next();
@@ -48,11 +66,11 @@ public class mahtods {
 	    System.out.println("please Enter the number of iteams");
 	    int itemnumber = sr.nextInt();
 	    temitem.setNumberOfItems(itemnumber);
-	  //  System.out.println("item ID is automaticlyy generated based on the indext ");
+  //  System.out.println("item ID is automaticlyy generated based on the indext ");
 	    int itemId = itemList.size();
 	    temitem.setIteamId(itemId);
 	    itemList.add(temitem);
-//	    
+	    
 //	
 //	    try{
 //
@@ -63,9 +81,9 @@ public class mahtods {
 //	        file.close();
 //	        System.out.println("===============serialized and saved==================");
 //	         }catch (Exception ex){
-//	      ex.printStackTrace();
+//      ex.printStackTrace();
 //	    }
-//	
+	
 	    }
 	
 	
@@ -85,7 +103,7 @@ public class mahtods {
 	{
 		System.out.println("Enter the id number to remove");
 		int remove = sr.nextInt();
-		itemList.get(remove);
+		itemList.get(remove);// get or set . arrayList is always based on the indext number (what every number you type i'll consider as indext )
 		itemList.remove(remove);
 		System.out.println("the item removed");
 	}

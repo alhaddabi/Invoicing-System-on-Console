@@ -5,7 +5,7 @@ public class Customer  {
 	
 
 
-	Items items = new Items();
+	
 	
 	private String customerFullName ;
 	private int customerPhoneNumber ;

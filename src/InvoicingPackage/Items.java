@@ -12,14 +12,14 @@ public class Items  implements Serializable{
 
 	ArrayList<InvoicingSystem> invoo = new ArrayList<InvoicingSystem>();
 	
-	Scanner sr = new Scanner(System.in);
+	transient Scanner sr = new Scanner(System.in);
 	private int numberOfItems ;
 	private int iteamId ;
 	private String itemaName ;
 	private int itemsPrice ;
 	
 	
-	
+	InvoicingSystem invoice = new InvoicingSystem();
 	
         
 	public void balance()

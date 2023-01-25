@@ -1,5 +1,6 @@
 package InvoicingPackage;
-import java.util.*;
+
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main{
@@ -9,27 +10,28 @@ public class Main{
 		mahtods mathod = new mahtods();
 		boolean i = true ;
 	
-		 Scanner sr = new Scanner(System.in);
+		Scanner sr = new Scanner(System.in);
 
 		
 		System.out.println("====================  Invoicing System  =========================");
-		System.out.println("please select from the given menu");
+	
 	
 		while(i)
 		{
 			System.out.println("Shop Settings");
-			System.out.println("0   Load data");
-			System.out.println("1.  Set Shop Name & new customer");
-			System.out.println("2.  Set Invoice Header");
-			System.out.println("3.  Add Items ");
-			System.out.println("4.  Delete Items ");
-			System.out.println("5.  Change Item Price");
-			System.out.println("6.  Report All invoice");
-			System.out.println("7.  Report: Statistics");
-			System.out.println("10. EXit");
+			System.out.println("=====0   Load data");
+			System.out.println("=====1.  Set Shop Name & new customer");
+			System.out.println("=====2.  Set Invoice Header");
+			System.out.println("=====3.  Add Items ");
+			System.out.println("=====4.  Delete Items ");
+			System.out.println("=====5.  Change Item Price");
+			System.out.println("=====6.  Report All invoice");
+			System.out.println("=====7.  Report: Statistics");
+			System.out.println("=====10. EXit");
 
-
-		int ii = sr.nextInt(); 
+			
+		        int ii = sr.nextInt(); 
+	
 		switch (ii)
 		{
 		case 0:
