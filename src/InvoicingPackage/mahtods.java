@@ -1,15 +1,12 @@
 package InvoicingPackage;
 import java.io.BufferedWriter;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class mahtods implements Serializable{
+public class mahtods {
 	
 	
 	transient Scanner sr = new Scanner(System.in);
@@ -29,14 +26,16 @@ public class mahtods implements Serializable{
 		Shop temShop = new Shop();
 		System.out.println("Enter the shop name ");
 		String shopName = sr.next();
+		temShop.setShopName(shopName);
 		System.out.println("Enter the shop ID ");
 		int shopId = sr.nextInt();
 		temShop.setShopId(shopId);
-		temShop.setShopName(shopName);
+	
 		shopList.add(temShop);
 		}
 		 catch (InputMismatchException w) { // for handing the try and showing the given pritn insted of showing an error excpation
 				System.out.println("who comes the ID could be a String!!!!!! please focuse and repet ");
+				System.out.println("========= repeat shop name & ID =================");
 				t1 = true;
 				sr.nextLine(); // with out the sc.nextLine() there will be an infinty loop going 
 			}
@@ -64,7 +63,7 @@ public class mahtods implements Serializable{
 	    String itemnam = sr.next();
 	    temitem.setItemaName(itemnam);
 	    System.out.println("Enter the items price");
-	    int price = sr.nextInt();
+	    double price = sr.nextDouble();
 	    temitem.setItemsPrice(price);
 	    System.out.println("please Enter the number of iteams");
 	    int itemnumber = sr.nextInt();
@@ -91,13 +90,20 @@ public class mahtods implements Serializable{
 	
 	    }
 	
+	public void printCustomerName() 
+	{
+		for(Customer a : customerList)
+		{
+			System.out.println("the customer name is : "+a.getCustomerFullName());
+		}
+	}
+	
 	
 		
 	public void print()
 	{
 		for(Items a : itemList)
 		{
-			System.out.println("the Customer name is : "+a.getItemaName()+"======");
 			System.out.println("the item price is :    "+a.getItemsPrice()+"======");
 			System.out.println("the item number is :   "+a.getNumberOfItems()+"======");
 			System.out.println("the item ID is :       "+a.getIteamId()+"======");
@@ -107,9 +113,9 @@ public class mahtods implements Serializable{
 	public void deleteItems()
 	{
 		System.out.println("Enter the id number to remove");
-		int remove = sr.nextInt();
-		itemList.get(remove);// get or set . arrayList is always based on the indext number (what every number you type i'll consider as indext )
-		itemList.remove(remove);
+		int indextnumber = sr.nextInt();
+		itemList.get(indextnumber);// get or set . arrayList is always based on the indext number (what every number you type i'll consider as indext )
+		itemList.remove(indextnumber);
 		System.out.println("the item removed");
 	}
 	
@@ -138,7 +144,7 @@ public class mahtods implements Serializable{
 	
 	public void totalsales() 
 	{
-		int totalPrice = 0;
+		double totalPrice = 0;
 		for(Items a : itemList)
 		{
 			totalPrice = totalPrice + a.getItemsPrice();
@@ -168,7 +174,7 @@ public class mahtods implements Serializable{
 		System.out.println("Enter the customer name");
 		String customerName = sr.next();
 		customer.setCustomerFullName(customerName);
-		System.out.println("Enter the custoemr ID ");
+		System.out.println("Enter the custoemr Phone number  ");
 		int customerPhomeNumber = sr.nextInt();
 		customer.setCustomerPhoneNumber(customerPhomeNumber);
 		customerList.add(customer);
@@ -197,7 +203,7 @@ public class mahtods implements Serializable{
 	    System.out.println("please Enter the invoice Email");
 	    String invoiceEmail = sr.next();
 	    temInvoic.setEmail(invoiceEmail);
-	    System.out.println("Enter the todays date ");
+	    System.out.println("Enter the todays date '__'/1/2023");
 	    int date = sr.nextInt();
 	    temInvoic.setInvoiceDate(date);
 	    InvoicList.add(temInvoic);

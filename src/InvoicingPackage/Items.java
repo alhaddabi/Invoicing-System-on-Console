@@ -1,12 +1,9 @@
 package InvoicingPackage;
-
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class Items  implements Serializable{
+public class Items {
 	
 	
 
@@ -16,7 +13,7 @@ public class Items  implements Serializable{
 	private int numberOfItems ;
 	private int iteamId ;
 	private String itemaName ;
-	private int itemsPrice ;
+	private double itemsPrice ;
 	
 	
 	InvoicingSystem invoice = new InvoicingSystem();
@@ -37,11 +34,11 @@ public class Items  implements Serializable{
 			System.out.println("the name is " +this.itemsPrice);
 		}
 
-		public int getItemsPrice() {
+		public double getItemsPrice() {
 			return itemsPrice;
 		}
 
-		public void setItemsPrice(int itemsPrice) {
+		public void setItemsPrice(double itemsPrice) {
 			this.itemsPrice = itemsPrice;
 		}
 

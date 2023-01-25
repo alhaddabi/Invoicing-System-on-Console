@@ -1,4 +1,8 @@
-the Customer name is : aaa======
-the item price is :    20======
-the item number is :   20======
+the Customer name is : OmanChips======
+the item price is :    2.25======
+the item number is :   6======
 the item ID is :       0======
+the Customer name is : ooo======
+the item price is :    2.25======
+the item number is :   6======
+the item ID is :       1======
