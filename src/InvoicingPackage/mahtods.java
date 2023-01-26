@@ -74,7 +74,7 @@ public class mahtods {
 	    itemList.add(temitem);
 	    try
 	    {
-	    	BufferedWriter writer = new BufferedWriter(new FileWriter("item_output.txt"));
+	    	BufferedWriter writer = new BufferedWriter(new FileWriter("item_output2.txt"));
 	    	for(Items a : itemList)
 			{
 				writer.write("the Customer name is : "+a.getItemaName()+"======\n");

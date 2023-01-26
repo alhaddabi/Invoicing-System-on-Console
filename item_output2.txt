@@ -1,0 +1,4 @@
+the Customer name is : joclwd======
+the item price is :    555.0======
+the item number is :   2======
+the item ID is :       0======

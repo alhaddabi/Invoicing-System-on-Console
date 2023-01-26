@@ -3,8 +3,11 @@ package InvoicingPackage;
 import java.util.Scanner;
 
 public class Main {
-
+	private static int menuCount = 0;
+	
 	public static void main(String[] args) throws Exception {
+		
+		
 
 		mahtods mathod = new mahtods();
 		boolean i = true;
@@ -12,6 +15,7 @@ public class Main {
 
 		System.out.println("====================  Invoicing System  =========================");
 		while (i) {
+			menuCount++;
 			System.out.println("1- Shop Settings");
 			System.out.println("2- Manage Shop Items");
 			System.out.println("3- EXIT");
@@ -59,7 +63,8 @@ public class Main {
 					System.out.println("3. Change Item Price");
 					System.out.println("4. Report: All Invoices");
 					System.out.println("5. Report: Statistics)");
-					System.out.println("6. Go Back");
+					System.out.println("6. Program Statistics (Print each Main Menu Item with how many number selected).");
+					System.out.println("7. Go Back");
 					int choose1 = sr.nextInt();
 					switch (choose1) {
 					case 1:
@@ -90,9 +95,13 @@ public class Main {
 
 					case 5:
 						mathod.ReportStatistics();
+					
+						break;
+					case 6:
+						System.out.println("menu count for main menu is "+menuCount+" time");
 						break;
 
-					case 6:
+					case 7:
 						manu2 = false;
 						break;
 
